@@ -31,6 +31,7 @@
     ></script>
 
     <!--Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
 
     <title>myCRM | Home</title>
   </head>
@@ -195,6 +196,105 @@
                 class="far fa-check-circle bg-success text-white rounded-circle p-2"
               ></i>
               <h5 class="card-title fs-6">Booked</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead Table -->
+    <div class="container border mt-4 p-5 tb-container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card border-0 shadow-sm">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-lg-2">
+                  <label for="searchByLeadOwner" class="form-label"></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="searchByLeadOwner"
+                    placeholder="Lead Owner"
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label for="searchByOrganization" class="form-label"></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="searchByOrganization"
+                    placeholder="Organization"
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <select
+                    class="form-select mt-4"
+                    aria-label="Default select example"
+                    id="selectLeadStage"
+                  >
+                    <option value="NOVALUE" class="options"></option>
+                    <option value="Prospect" class="options">Prospect</option>
+                    <option value="Pipeline" class="options">Pipeline</option>
+                    <option value="Shortlisted" class="options">
+                      Shortlisted
+                    </option>
+                    <option value="Closed Booked" class="options">
+                      Closed Booked
+                    </option>
+                    <option value="Closed Lost" class="options">
+                      Closed Lost
+                    </option>
+                    <option value="Closed Cancelled" class="options">
+                      Closed Cancelled
+                    </option>
+                  </select>
+                </div>
+                <div class="col-lg-6 text-end">
+                  <a
+                    class="btn btn-success btn-sm mt-4 mx-1 search"
+                    href="#"
+                    role="button"
+                    ><i class="fas fa-search"></i> Search</a
+                  >
+                  <a
+                    class="btn btn-warning btn-sm mt-4 mx-1 text-white sortname"
+                    href="#"
+                    role="button"
+                    ><i class="fas fa-sort-alpha-down"></i> Sort by Name</a
+                  >
+                  <a
+                    class="btn btn-secondary btn-sm mt-4 mx-1 text-white refresh"
+                    href="#"
+                    role="button"
+                    ><i class="fas fa-redo-alt"></i> Refresh</a
+                  >
+                  <a
+                    class="btn btn-primary btn-sm mt-4 mx-1"
+                    href="#"
+                    role="button"
+                    ><i class="fas fa-plus"></i> New Lead</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive-lg">
+                <table class="table table-bordered table-sm mb-0">
+                  <thead class="table-dark">
+                    <tr>
+                      <th scope="col">SL No</th>
+                      <th scope="col">Person Name</th>
+                      <th scope="col">Email Id</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Organization</th>
+                      <th scope="col">Lead Stage</th>
+                      <th scope="col">Lead Owner</th>
+                    </tr>
+                  </thead>
+                  <tbody class="tabledata"></tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
