@@ -218,3 +218,41 @@ const init = (data) => {
 };
 
 init(leadData);
+
+// Implementing - Search Lead Data By Lead Owner
+
+search.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (!leadOwned.value) return init(leadData);
+
+  const filteredData = leadData.filter((leads) => {
+    return (
+      leads.leadOwner ===
+      leadOwned.value
+        .split(" ")
+        .map((arrayElement, index) => {
+          return arrayElement[0].toUpperCase() + arrayElement.slice(1);
+        })
+        .join(" ")
+    );
+  });
+
+  console.log(filteredData);
+
+  dataContainer.innerHTML = "";
+
+  filteredData.forEach((arrayElement, index) => {
+    const result = `<tr>
+      <th scope="row">${index + 1}</th>
+      <td>${arrayElement.personName}</td>
+      <td>${arrayElement.emailAddress}</td>
+      <td>${arrayElement.phoneNumber}</td>
+      <td>${arrayElement.organization}</td>
+      <td>${arrayElement.leadStage}</td>
+      <td>${arrayElement.leadOwner}</td>
+      </tr>`;
+
+    dataContainer.insertAdjacentHTML("beforeend", result);
+  });
+});
