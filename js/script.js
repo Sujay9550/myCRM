@@ -256,3 +256,28 @@ search.addEventListener("click", (e) => {
     dataContainer.insertAdjacentHTML("beforeend", result);
   });
 });
+
+// Implementing - Sort Lead Data By Person Name
+sortByName.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const sortedData = leadData.slice().sort((a, b) => {
+    if (a.personName < b.personName) return -1;
+    if (a.personName > b.personName) return 1;
+    return 0;
+  });
+
+  dataContainer.innerHTML = "";
+  sortedData.forEach((arrayElement, index) => {
+    const result = `<tr>
+      <th scope="row">${index + 1}</th>
+      <td>${arrayElement.personName}</td>
+      <td>${arrayElement.emailAddress}</td>
+      <td>${arrayElement.phoneNumber}</td>
+      <td>${arrayElement.organization}</td>
+      <td>${arrayElement.leadStage}</td>
+      <td>${arrayElement.leadOwner}</td>
+      </tr>`;
+    dataContainer.insertAdjacentHTML("beforeend", result);
+  });
+});
