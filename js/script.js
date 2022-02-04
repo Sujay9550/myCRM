@@ -281,3 +281,38 @@ sortByName.addEventListener("click", (e) => {
     dataContainer.insertAdjacentHTML("beforeend", result);
   });
 });
+
+// Implementing - Filter Lead Data By Lead Stage
+
+console.log(selectLeadStage);
+
+const searchByLeadStage = () => {
+  const currentText = selectLeadStage.value;
+  console.log(currentText);
+
+  if (currentText === "NOVALUE") return init(leadData);
+
+  const filteredData = leadData.filter((leads) => {
+    return leads.leadStage === currentText;
+  });
+
+  console.log(filteredData);
+
+  dataContainer.innerHTML = "";
+
+  filteredData.forEach((arrayElement, index) => {
+    const result = `<tr>
+    <th scope="row">${index + 1}</th>
+    <td>${arrayElement.personName}</td>
+    <td>${arrayElement.emailAddress}</td>
+    <td>${arrayElement.phoneNumber}</td>
+    <td>${arrayElement.organization}</td>
+    <td>${arrayElement.leadStage}</td>
+    <td>${arrayElement.leadOwner}</td>
+    </tr>`;
+
+    dataContainer.insertAdjacentHTML("beforeend", result);
+  });
+};
+
+selectLeadStage.addEventListener("change", searchByLeadStage);
