@@ -316,3 +316,11 @@ const searchByLeadStage = () => {
 };
 
 selectLeadStage.addEventListener("change", searchByLeadStage);
+
+// Implementing - Refresh Lead Data
+refresh.addEventListener("click", (e) => {
+  e.preventDefault();
+  leadOwned.value = "";
+  selectLeadStage.value = "";
+  init(leadData);
+});
