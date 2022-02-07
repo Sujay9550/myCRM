@@ -199,21 +199,27 @@ btnLogin.addEventListener("click", (e) => {
   }
 });
 
+// Reusable Function to render the result
+
+const renderResult = (element, index) => {
+  const result = `<tr>
+  <th scope="row">${index + 1}</th>
+  <td>${element.personName}</td>
+  <td>${element.emailAddress}</td>
+  <td>${element.phoneNumber}</td>
+  <td>${element.organization}</td>
+  <td>${element.leadStage}</td>
+  <td>${element.leadOwner}</td>
+  </tr>`;
+
+  dataContainer.insertAdjacentHTML("beforeend", result);
+};
+
 // Data Initialization
 const init = (data) => {
   dataContainer.innerHTML = "";
   data.forEach((arrayElement, index, array) => {
-    const result = `<tr>
-  <th scope="row">${index + 1}</th>
-  <td>${arrayElement.personName}</td>
-  <td>${arrayElement.emailAddress}</td>
-  <td>${arrayElement.phoneNumber}</td>
-  <td>${arrayElement.organization}</td>
-  <td>${arrayElement.leadStage}</td>
-  <td>${arrayElement.leadOwner}</td>
-  </tr>`;
-
-    dataContainer.insertAdjacentHTML("beforeend", result);
+    renderResult(arrayElement, index);
   });
 };
 
@@ -243,17 +249,7 @@ search.addEventListener("click", (e) => {
   dataContainer.innerHTML = "";
 
   filteredData.forEach((arrayElement, index) => {
-    const result = `<tr>
-      <th scope="row">${index + 1}</th>
-      <td>${arrayElement.personName}</td>
-      <td>${arrayElement.emailAddress}</td>
-      <td>${arrayElement.phoneNumber}</td>
-      <td>${arrayElement.organization}</td>
-      <td>${arrayElement.leadStage}</td>
-      <td>${arrayElement.leadOwner}</td>
-      </tr>`;
-
-    dataContainer.insertAdjacentHTML("beforeend", result);
+    renderResult(arrayElement, index);
   });
 });
 
@@ -269,16 +265,7 @@ sortByName.addEventListener("click", (e) => {
 
   dataContainer.innerHTML = "";
   sortedData.forEach((arrayElement, index) => {
-    const result = `<tr>
-      <th scope="row">${index + 1}</th>
-      <td>${arrayElement.personName}</td>
-      <td>${arrayElement.emailAddress}</td>
-      <td>${arrayElement.phoneNumber}</td>
-      <td>${arrayElement.organization}</td>
-      <td>${arrayElement.leadStage}</td>
-      <td>${arrayElement.leadOwner}</td>
-      </tr>`;
-    dataContainer.insertAdjacentHTML("beforeend", result);
+    renderResult(arrayElement, index);
   });
 });
 
@@ -301,17 +288,7 @@ const searchByLeadStage = () => {
   dataContainer.innerHTML = "";
 
   filteredData.forEach((arrayElement, index) => {
-    const result = `<tr>
-    <th scope="row">${index + 1}</th>
-    <td>${arrayElement.personName}</td>
-    <td>${arrayElement.emailAddress}</td>
-    <td>${arrayElement.phoneNumber}</td>
-    <td>${arrayElement.organization}</td>
-    <td>${arrayElement.leadStage}</td>
-    <td>${arrayElement.leadOwner}</td>
-    </tr>`;
-
-    dataContainer.insertAdjacentHTML("beforeend", result);
+    renderResult(arrayElement, index);
   });
 };
 
