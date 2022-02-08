@@ -196,6 +196,24 @@ btnLogin.addEventListener("click", (e) => {
         mainFooter.classList.remove("fixed-bottom");
       });
     }, 1000);
+
+    setInterval(() => {
+      const now = new Date();
+      const options = {
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        weekday: "long",
+      };
+
+      const formattedDate = new Intl.DateTimeFormat("en-IN", options).format(
+        now
+      );
+      displayDate.textContent = formattedDate;
+    }, 1000);
   }
 });
 
